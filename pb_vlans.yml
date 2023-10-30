@@ -6,10 +6,10 @@
   connection: local
   tasks:
     - name: ENSURE OUTPUT FOLDER EXISTS
-      ansible.bulitin.file:
+      ansible.builtin.file:
         path: output
         state: directory
     - name: USE VLAN TEMPLATE TO GENERATE FILES
-      ansible.bulitin.file:
-         src: vlans.j2
-         dest: output/{{ inventory_hostname }}_vlans.cfg
+      ansible.builtin.template:
+        src: vlans.j2
+        dest: output/{{ inventory_hostname }}_vlans.cfg
